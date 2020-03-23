@@ -1,0 +1,57 @@
+{
+  "name": "@typeform/eslint-config",
+  "version": "0.0.0-development",
+  "description": "ESLint configuration for Typeform front-end projects",
+  "main": "index.js",
+  "repository": "git@github.com:Typeform/eslint-config-typeform.git",
+  "license": "LGPL 3.0",
+  "private": false,
+  "scripts": {
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once --pro",
+    "test": "echo 'no tests' && exit 0",
+    "eslint": "eslint -c ./index.js",
+    "lint": "yarn run eslint ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn run eslint --fix",
+      "git add"
+    ]
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "dependencies": {
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-jsx": "^6.0.2",
+    "eslint-plugin-filenames": "^1.3.2",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.6.4",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "eslint-plugin-react-perf": "^2.0.9",
+    "eslint-plugin-standard": "^4.0.0"
+  },
+  "peerDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.8.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.0",
+    "semantic-release": "^15.12.4",
+    "travis-deploy-once": "^5.0.9"
+  }
+}
