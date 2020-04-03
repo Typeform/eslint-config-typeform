@@ -18,6 +18,10 @@ module.exports = {
 }
 ```
 
+## Contribution
+
+Create a pull request to master branch in Github. Travis CI will automatically run in the PR build and release to npm once merged.
+
 And run with:
 
 ```sh
