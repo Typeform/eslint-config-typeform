@@ -1,12 +1,10 @@
-const a11yLintRules = require('./accessibility/lint-rules')
-const performanceRules = require('./performance/lint-rules')
+const a11yLintRules = require('./accessibility/lint-rules');
+const performanceRules = require('./performance/lint-rules');
 
 const config = {
   parser: 'babel-eslint',
   extends: [
     './with-prettier.js',
-    'standard',
-    'standard-jsx',
     'plugin:import/errors',
     'plugin:react/recommended',
     'prettier/react',
@@ -86,6 +84,6 @@ const config = {
     'prefer-const': 'warn',
     'prefer-template': 'warn',
   }),
-}
+};
 
-module.exports = config
+module.exports = config;
