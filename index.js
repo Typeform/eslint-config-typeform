@@ -1,34 +1,29 @@
 const a11yLintRules = require('./accessibility/lint-rules')
 const performanceRules = require('./performance/lint-rules')
 
-module.exports = {
+const config = {
   parser: 'babel-eslint',
   extends: [
+    './with-prettier.js',
     'standard',
     'standard-jsx',
+    'plugin:import/errors',
     'plugin:react/recommended',
     'prettier/react',
     'prettier/standard',
   ],
-  plugins: [
-    'filenames',
-    'jsx-a11y',
-    'react',
-    'react-perf',
-    'react-hooks',
-    'jest',
-  ],
+  plugins: ['filenames', 'jsx-a11y', 'react', 'react-perf', 'react-hooks', 'jest'],
   settings: {
     react: {
       version: '16',
     },
   },
   env: {
-    browser: true,
-    commonjs: true,
-    es6: true,
-    jest: true,
-    node: true,
+    'browser': true,
+    'commonjs': true,
+    'es6': true,
+    'jest': true,
+    'node': true,
     'jest/globals': true,
   },
   parserOptions: {
@@ -79,7 +74,7 @@ module.exports = {
     'filenames/match-regex': ['warn', '^_?[a-z0-9-.]+$'],
     'jest/no-focused-tests': 'error',
     'comma-dangle': ['error', 'always-multiline'],
-    complexity: ['warn', { max: 7 }],
+    'complexity': ['warn', { max: 7 }],
     'consistent-return': 'warn',
     'global-require': 'warn',
     'no-console': 'warn',
@@ -92,3 +87,5 @@ module.exports = {
     'prefer-template': 'warn',
   }),
 }
+
+module.exports = config
