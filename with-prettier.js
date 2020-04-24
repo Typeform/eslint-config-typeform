@@ -1,6 +1,4 @@
-let config = {
-  extends: ['standard', 'standard-jsx'],
-}
+let config = {}
 
 try {
   require('prettier')

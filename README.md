@@ -18,7 +18,19 @@ module.exports = {
 }
 ```
 
-And run with:
+To add `prettier` to tour `eslint` workflow, just install:
+
+```sh
+yarn add -D prettier
+```
+
+And point `prettier` to the shared configuration in `package.json`:
+
+```json
+  "prettier": "@typeform/eslint-config/prettier"
+```
+
+Now run `eslint` with:
 
 ```sh
 yarn eslint . --fix
