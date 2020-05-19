@@ -23,10 +23,13 @@ jobs:
         - npm config set '//npm.pkg.github.com/:_authToken' ${GH_TOKEN}
         - npm config set registry https://npm.pkg.github.com/
       deploy:
-        - yarn run semantic-release
-        - npm config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}
-        - npm config set registry https://registry.npmjs.org/
-        - npm publish
+        - provider: script
+          skip_cleanup: true
+          script:
+            - yarn run semantic-release
+            - npm config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}
+            - npm config set registry https://registry.npmjs.org/
+            - npm publish
 
 notifications:
   email: false
