@@ -1,18 +1,34 @@
 language: node_js
 node_js:
-  - '10'
+  - '12'
 
+# Travis runs on PUSH events ONLY in master branch. This does not affect to Travis running on PULL REQUEST event
 branches:
-  except:
-    - /^v\d+\.\d+\.\d+$/
+  only:
+    - master
 
 cache: yarn
 
-script:
-  - yarn run lint
+stages:
+  - name: pull_request
+    if: branch = master AND type = pull_request
+  - name: release
+    if: branch = master AND type = push
 
-after_success:
-  - yarn run travis-deploy-once "npm run semantic-release"
+jobs:
+  include:
+    - stage: lint
+      script: yarn run lint
+    - stage: release
+      before_script:
+        - npm config set '//npm.pkg.github.com/:_authToken' ${GH_TOKEN}
+        - npm config set registry https://npm.pkg.github.com/
+      script:
+        - yarn run lint
+        - yarn run semantic-release
+      after_success:
+        - npm config set registry https://registry.npmjs.org/
+        - npm publish
 
 notifications:
   email: false
