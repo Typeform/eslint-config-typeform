@@ -17,7 +17,7 @@ stages:
 
 jobs:
   include:
-    - stage: lint
+    - stage: pull_request
       script: yarn run lint
     - stage: release
       script:
