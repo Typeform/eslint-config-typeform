@@ -2,22 +2,24 @@ language: node_js
 node_js:
   - '12'
 
+# Travis runs on PUSH events ONLY in master branch. This does not affect to Travis running on PULL REQUEST event
 branches:
-  except:
-    - /^v\d+\.\d+\.\d+$/
+  only:
+    - master
 
 cache: yarn
 
 stages:
-  - lint
-  - name: deploy
-    if: branch = master
+  - name: pull_request
+    if: branch = master AND type = pull_request
+  - name: release
+    if: branch = master AND type = push
 
 jobs:
   include:
     - stage: lint
       script: yarn run lint
-    - stage: deploy
+    - stage: release
       before_script:
         - npm config set '//npm.pkg.github.com/:_authToken' ${GH_TOKEN}
         - npm config set registry https://npm.pkg.github.com/
