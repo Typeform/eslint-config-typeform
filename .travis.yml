@@ -27,7 +27,6 @@ jobs:
         - yarn run lint
         - yarn run semantic-release
       after_success:
-        - npm config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}
         - npm config set registry https://registry.npmjs.org/
         - npm publish
 
