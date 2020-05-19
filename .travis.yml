@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - '10'
+  - '12'
 
 branches:
   except:
@@ -8,11 +8,25 @@ branches:
 
 cache: yarn
 
-script:
-  - yarn run lint
+stages:
+  - lint
+  - name: deploy
+    if: branch = master
 
-after_success:
-  - yarn run travis-deploy-once "npm run semantic-release"
+jobs:
+  include:
+    - stage: lint
+      script: yarn run lint
+    - stage: deploy
+      script: yarn run lint
+      before_deploy:
+        - npm config set '//npm.pkg.github.com/:_authToken' ${GH_TOKEN}
+        - npm config set registry https://npm.pkg.github.com/
+      deploy:
+        - yarn run semantic-release
+        - npm config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}
+        - npm config set registry https://registry.npmjs.org/
+        - npm publish
 
 notifications:
   email: false
