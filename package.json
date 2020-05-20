@@ -23,7 +23,7 @@
     ]
   },
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "dependencies": {
     "eslint-config-prettier": "^3.1.0",
