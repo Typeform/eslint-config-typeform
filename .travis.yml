@@ -24,8 +24,8 @@ jobs:
         - yarn run lint
         - yarn run semantic-release
       after_success:
-        - npm config set '//npm.pkg.github.com/:_authToken' ${GH_TOKEN}
-        - npm config set registry https://npm.pkg.github.com/@typeform
+        - npm config set '//npm.pkg.github.com/:_authToken' $GH_TOKEN
+        - npm config set registry https://npm.pkg.github.com
         - npm publish
 
 notifications:
