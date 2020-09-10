@@ -5,7 +5,7 @@ ESLint configuration for [Typeform](https://github.com/Typeform/) front-end proj
 ## Install
 
 ```sh
-yarn add eslint babel-eslint @typeform/eslint-config --dev
+yarn add eslint @babel/eslint-parser @typeform/eslint-config --dev
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ If you want to use the default configuration, you can simply create a `.eslintrc
 ```js
 module.exports = {
   extends: ['@typeform/eslint-config'],
-}
+};
 ```
 
 And run with:

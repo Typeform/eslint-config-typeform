@@ -9,20 +9,9 @@ branches:
 
 cache: yarn
 
-stages:
-  - name: pull_request
-    if: branch != master
-  - name: release
-    if: branch = master AND type = push
-
-jobs:
-  include:
-    - stage: pull_request
-      script: yarn run lint
-    - stage: release
-      script:
-        - yarn run lint
-        - yarn run semantic-release
+script:
+  - yarn lint
+  - yarn semantic-release
 
 notifications:
   email: false
