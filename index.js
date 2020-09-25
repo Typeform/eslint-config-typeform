@@ -36,6 +36,7 @@ module.exports = {
     'jest/no-focused-tests': 'error',
     'no-console': 'warn',
     'prefer-template': 'warn',
+    'react/prop-types': 'error'
   },
   settings: {
     react: {
