@@ -1,8 +1,6 @@
 module.exports = {
   parser: '@babel/eslint-parser',
   extends: [
-    'standard',
-    'standard-jsx',
     'react-app',
     'plugin:jsx-a11y/recommended',
     'prettier',
@@ -10,38 +8,40 @@ module.exports = {
     'prettier/babel',
     'prettier/react',
     'prettier/standard',
+    'standard',
+    'standard-jsx'
   ],
   plugins: ['jest'],
   env: {
-    'browser': true,
-    'commonjs': true,
-    'es6': true,
-    'jest': true,
-    'node': true,
-    'jest/globals': true,
+    browser: true,
+    commonjs: true,
+    es6: true,
+    jest: true,
+    node: true,
+    'jest/globals': true
   },
   parserOptions: {
     ecmaFeatures: {
-      generators: true,
-    },
+      generators: true
+    }
   },
   rules: {
     'import/order': [
       'warn',
       {
-        'newlines-between': 'always',
-      },
+        'newlines-between': 'always'
+      }
     ],
     'import/export': 'warn',
     'jest/no-focused-tests': 'error',
     'no-console': 'warn',
     'prefer-template': 'warn',
     'react/prop-types': 'error',
-    'react-hooks/exhaustive-deps': 'error',
+    'react-hooks/exhaustive-deps': 'error'
   },
   settings: {
     react: {
-      version: 'detect',
-    },
-  },
-};
+      version: 'detect'
+    }
+  }
+}
