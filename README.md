@@ -23,3 +23,19 @@ And run with:
 ```sh
 yarn eslint . --fix
 ```
+
+## Using with prettier
+
+If your codebase uses prettier for styles formatting, you can override default `standard` rules updating your `eslint` config:
+
+```js
+module.exports = {
+  extends: ['@typeform/eslint-config', 'prettier', 'prettier/react', 'plugin:prettier/recommended'],
+}
+```
+
+and installing `eslint-plugin-prettier`:
+
+```sh
+yarn add --dev eslint-plugin-prettier
+```
