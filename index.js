@@ -6,9 +6,6 @@ module.exports = {
     'prettier/@typescript-eslint',
     'prettier/babel',
     'prettier/react',
-    'prettier/standard',
-    'standard',
-    'standard-jsx',
   ],
   plugins: ['jest'],
   env: {
