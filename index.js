@@ -34,7 +34,6 @@ module.exports = {
     'prefer-template': 'warn',
     'react/prop-types': 'error',
     'react-hooks/exhaustive-deps': 'error',
-    'comma-dangle': ['error', 'always-multiline'],
   },
   settings: {
     react: {
