@@ -6,9 +6,6 @@ module.exports = {
     'prettier/@typescript-eslint',
     'prettier/babel',
     'prettier/react',
-    'prettier/standard',
-    'standard',
-    'standard-jsx',
   ],
   plugins: ['jest'],
   env: {
@@ -37,7 +34,6 @@ module.exports = {
     'prefer-template': 'warn',
     'react/prop-types': 'error',
     'react-hooks/exhaustive-deps': 'error',
-    'comma-dangle': ['error', 'always-multiline'],
   },
   settings: {
     react: {

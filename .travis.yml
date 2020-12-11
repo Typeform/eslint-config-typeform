@@ -2,10 +2,11 @@ language: node_js
 node_js:
   - '12'
 
-# Travis runs on PUSH events ONLY in master branch. This does not affect to Travis running on PULL REQUEST event
+# Travis runs on PUSH events ONLY in the following branches. This does not affect to Travis running on PULL REQUEST event
 branches:
   only:
     - master
+    - next
 
 cache: yarn
 
