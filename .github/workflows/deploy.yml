@@ -12,7 +12,7 @@ env:
 jobs:
   main:
     name: Run checks and deploy
-    runs-on: [self-hosted, fear]
+    runs-on: [ubuntu-latest]
 
     steps:
       - name: Check out Git repository
