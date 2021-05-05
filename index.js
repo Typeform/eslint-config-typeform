@@ -9,11 +9,11 @@ module.exports = {
   ],
   plugins: ['jest'],
   env: {
-    browser: true,
-    commonjs: true,
-    es6: true,
-    jest: true,
-    node: true,
+    'browser': true,
+    'commonjs': true,
+    'es6': true,
+    'jest': true,
+    'node': true,
     'jest/globals': true,
   },
   parserOptions: {
@@ -22,6 +22,7 @@ module.exports = {
     },
   },
   rules: {
+    '@typescript-eslint/no-extra-semi': 'off',
     'import/order': [
       'warn',
       {
