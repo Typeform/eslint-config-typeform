@@ -32,7 +32,7 @@ module.exports = {
     'import/export': 'warn',
     'jest/no-focused-tests': 'error',
     'no-console': 'warn',
-    'no-debugger': 'error',
+    'no-debugger': 'warn',
     'prefer-template': 'warn',
     'react/prop-types': 'error',
     'react-hooks/exhaustive-deps': 'error',
