@@ -36,6 +36,18 @@ module.exports = {
     'prefer-template': 'warn',
     'react/prop-types': 'error',
     'react-hooks/exhaustive-deps': 'error',
+    'no-restricted-imports': [
+      'warn',
+      {
+        patterns: [
+          {
+            group: ['@typeform/kitt/lib/*'],
+            message:
+              "🙈 The lib notation is deprecated. Refer to the Kitt's doc, and ping the FEAR team if you have a doubt",
+          },
+        ],
+      },
+    ],
   },
   settings: {
     react: {

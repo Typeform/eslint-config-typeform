@@ -48,12 +48,12 @@
   },
   "peerDependencies": {
     "@babel/core": "7.x",
-    "eslint": "7.x"
+    "eslint": ">=7.27.x"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@semantic-release/exec": "^5.0.0",
-    "eslint": "^7.14.0",
+    "eslint": "^7.27.0",
     "husky": "^4.3.0",
     "lint-staged": "^10.5.2",
     "prettier": "^2.2.1",
