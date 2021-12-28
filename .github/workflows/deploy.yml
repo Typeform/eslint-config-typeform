@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - master
+      - main
       - next
 
 env:
@@ -42,5 +42,5 @@ jobs:
       - name: Run linting
         run: yarn lint
 
-      - name: Release master
+      - name: Release main
         run: yarn semantic-release
