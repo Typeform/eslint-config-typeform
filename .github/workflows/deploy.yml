@@ -6,9 +6,6 @@ on:
       - main
       - next
 
-env:
-  GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
 jobs:
   main:
     name: Run checks and deploy
@@ -44,3 +41,5 @@ jobs:
 
       - name: Release main
         run: yarn semantic-release
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
