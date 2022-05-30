@@ -36,6 +36,7 @@ module.exports = {
     'prefer-template': 'warn',
     'react/prop-types': 'error',
     'react-hooks/exhaustive-deps': 'error',
+    '@typescript-eslint/no-explicit-any': 'warn',
     'no-restricted-imports': [
       'warn',
       {
