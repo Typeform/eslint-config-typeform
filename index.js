@@ -22,7 +22,7 @@ module.exports = {
     },
   },
   rules: {
-    'no-var': 'error',
+    'no-var': 'warn',
     '@typescript-eslint/no-extra-semi': 'off',
     'import/order': [
       'warn',

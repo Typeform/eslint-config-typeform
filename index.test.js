@@ -26,6 +26,16 @@ describe('eslint config', () => {
     expect(output.includes('"errorCount":0')).toBeTruthy()
     expect(output.includes('"warningCount":1')).toBeTruthy()
   })
+
+  it('should warn if var is used', () => {
+    const output = child_process
+      .execSync('yarn eslint -f "json" --no-ignore test-cases/warn-no-var.js')
+      .toString()
+
+    expect(output.includes('"ruleId":"no-var"')).toBeTruthy()
+    expect(output.includes('"errorCount":0')).toBeTruthy()
+    expect(output.includes('"warningCount":1')).toBeTruthy()
+  })
   // #endregion
 
   // #region Fail
@@ -49,24 +59,5 @@ describe('eslint config', () => {
     }
   })
 
-  it('should fail if var is used', () => {
-    const call = () =>
-      child_process.execSync(
-        'yarn eslint -f "json" --no-ignore test-cases/error-no-var.js'
-      )
-
-    expect(call).toThrow()
-
-    let output = null
-
-    try {
-      call()
-    } catch (err) {
-      output = err.stdout.toString()
-      expect(output.includes('"ruleId":"no-var"')).toBeTruthy()
-      expect(output.includes('"errorCount":1')).toBeTruthy()
-      expect(output.includes('"warningCount":0')).toBeTruthy()
-    }
-  })
   // #endregion
 })
