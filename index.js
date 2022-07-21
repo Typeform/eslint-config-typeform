@@ -23,6 +23,8 @@ module.exports = {
   },
   rules: {
     'no-var': 'warn',
+    'curly': 'warn',
+    'prefer-destructuring': 'warn',
     '@typescript-eslint/no-extra-semi': 'off',
     'import/order': [
       'warn',

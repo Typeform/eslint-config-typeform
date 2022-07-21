@@ -36,6 +36,28 @@ describe('eslint config', () => {
     expect(output.includes('"errorCount":0')).toBeTruthy()
     expect(output.includes('"warningCount":1')).toBeTruthy()
   })
+
+  it('should warn if braces are not used', () => {
+    const output = child_process
+      .execSync('yarn eslint -f "json" --no-ignore test-cases/warn-curly.js')
+      .toString()
+
+    expect(output.includes('"ruleId":"curly"')).toBeTruthy()
+    expect(output.includes('"errorCount":0')).toBeTruthy()
+    expect(output.includes('"warningCount":2')).toBeTruthy()
+  })
+
+  it('should warn if destructuring is not used', () => {
+    const output = child_process
+      .execSync(
+        'yarn eslint -f "json" --no-ignore test-cases/warn-prefer-destructuring.js'
+      )
+      .toString()
+
+    expect(output.includes('"ruleId":"prefer-destructuring"')).toBeTruthy()
+    expect(output.includes('"errorCount":0')).toBeTruthy()
+    expect(output.includes('"warningCount":1')).toBeTruthy()
+  })
   // #endregion
 
   // #region Fail
