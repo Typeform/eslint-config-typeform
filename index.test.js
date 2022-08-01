@@ -58,6 +58,30 @@ describe('eslint config', () => {
     expect(output.includes('"errorCount":0')).toBeTruthy()
     expect(output.includes('"warningCount":1')).toBeTruthy()
   })
+
+  it('should warn if promise does not return', () => {
+    const output = child_process
+      .execSync(
+        'yarn eslint -f "json" --no-ignore test-cases/warn-promise-always-return.js'
+      )
+      .toString()
+
+    expect(output.includes('"ruleId":"promise/always-return"')).toBeTruthy()
+    expect(output.includes('"errorCount":0')).toBeTruthy()
+    expect(output.includes('"warningCount":1')).toBeTruthy()
+  })
+
+  it('should warn if promises are nested', () => {
+    const output = child_process
+      .execSync(
+        'yarn eslint -f "json" --no-ignore test-cases/warn-promise-no-nesting.js'
+      )
+      .toString()
+
+    expect(output.includes('"ruleId":"promise/no-nesting"')).toBeTruthy()
+    expect(output.includes('"errorCount":0')).toBeTruthy()
+    expect(output.includes('"warningCount":1')).toBeTruthy()
+  })
   // #endregion
 
   // #region Fail

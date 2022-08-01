@@ -5,4 +5,12 @@ if (true) {
   const { a } = data
   myVariable += a + data.b
 }
-return myVariable
+
+const doAsyncStuff = (variable) =>
+  new Promise(() => {
+    return variable + 12
+  }).then((result) => {
+    return result * 2
+  })
+
+return doAsyncStuff(myVariable)

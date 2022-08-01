@@ -2,6 +2,7 @@ module.exports = {
   extends: [
     'react-app',
     'plugin:jsx-a11y/recommended',
+    'plugin:promise/recommended',
     'prettier',
     'prettier/@typescript-eslint',
     'prettier/babel',
@@ -25,6 +26,11 @@ module.exports = {
     'no-var': 'warn',
     'curly': 'warn',
     'prefer-destructuring': 'warn',
+    'promise/always-return': 'warn',
+    'promise/no-return-wrap': 'warn',
+    'promise/param-names': 'warn',
+    'promise/catch-or-return': 'warn',
+    'promise/no-new-statics': 'warn',
     '@typescript-eslint/no-extra-semi': 'off',
     'import/order': [
       'warn',
