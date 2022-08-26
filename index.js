@@ -39,6 +39,7 @@ module.exports = {
     'prefer-template': 'warn',
     'react/prop-types': 'error',
     'react-hooks/exhaustive-deps': 'error',
+    'react/jsx-key': ['warn', { checkFragmentShorthand: true }],
     '@typescript-eslint/no-explicit-any': 'warn',
     'no-restricted-imports': [
       'warn',
