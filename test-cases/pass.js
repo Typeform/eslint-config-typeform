@@ -5,4 +5,4 @@ if (true) {
   const { a } = data
   myVariable += a + data.b
 }
-return myVariable
+export default myVariable
