@@ -1,12 +1,5 @@
 module.exports = {
-  extends: [
-    'react-app',
-    'plugin:jsx-a11y/recommended',
-    'prettier',
-    'prettier/@typescript-eslint',
-    'prettier/babel',
-    'prettier/react',
-  ],
+  extends: ['react-app', 'plugin:jsx-a11y/recommended', 'prettier'],
   plugins: ['jest'],
   env: {
     'browser': true,
