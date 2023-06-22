@@ -3,7 +3,6 @@
   "version": "0.0.0-development",
   "description": "ESLint configuration for Typeform front-end projects",
   "main": "index.js",
-  "repository": "git@github.com:Typeform/eslint-config-typeform.git",
   "license": "LGPL-3.0-only",
   "private": false,
   "engines": {
@@ -12,8 +11,7 @@
   "scripts": {
     "test": "jest",
     "eslint": "eslint",
-    "lint": "yarn run eslint .",
-    "publish:github": "npm config set '//npm.pkg.github.com/:_authToken' $GH_TOKEN && npm publish --registry https://npm.pkg.github.com"
+    "lint": "yarn run eslint ."
   },
   "husky": {
     "hooks": {
@@ -81,13 +79,7 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/npm",
-      "@semantic-release/github",
-      [
-        "@semantic-release/exec",
-        {
-          "successCmd": "yarn run publish:github"
-        }
-      ]
+      "@semantic-release/github"
     ]
   },
   "babel": {}
