@@ -13,7 +13,7 @@
     "test": "jest",
     "eslint": "eslint",
     "lint": "yarn run eslint .",
-    "publish:npm": "npm config set '//registry.npmjs.org/:_authToken' $NPM_TOKEN && npm publish --registry https://registry.npmjs.org"
+    "publish:npm": "npm config set @typeform:registry https://registry.npmjs.org/ && npm config set '//registry.npmjs.org/:_authToken' $NPM_TOKEN && npm publish"
   },
   "husky": {
     "hooks": {
