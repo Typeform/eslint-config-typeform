@@ -13,7 +13,7 @@
     "test": "jest",
     "eslint": "eslint",
     "lint": "yarn run eslint .",
-    "publish:github": "npm config set '//npm.pkg.github.com/:_authToken' $GH_TOKEN && npm publish --registry https://npm.pkg.github.com"
+    "publish:npm": "npm config set '//registry.npmjs.org/:_authToken' $NPM_TOKEN && npm publish --registry https://registry.npmjs.org"
   },
   "husky": {
     "hooks": {
@@ -85,7 +85,7 @@
       [
         "@semantic-release/exec",
         {
-          "successCmd": "yarn run publish:github"
+          "successCmd": "yarn run publish:npm"
         }
       ]
     ]
