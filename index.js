@@ -34,6 +34,13 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error',
     'react/jsx-key': ['warn', { checkFragmentShorthand: true }],
     '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/consistent-type-imports': [
+      'warn',
+      {
+        prefer: 'type-imports',
+        fixStyle: 'inline-type-imports',
+      },
+    ],
     'no-restricted-imports': [
       'warn',
       {
