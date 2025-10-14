@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+# Try to use node from PATH first
+if ! command -v node >/dev/null 2>&1; then
+  # If node is not found, try to load nvm
+  if [ -f ~/.nvm/nvm.sh ]; then
+    . ~/.nvm/nvm.sh
+    nvm use 22 >/dev/null 2>&1 || nvm use default >/dev/null 2>&1
+  fi
+fi
+
+yarn lint-staged

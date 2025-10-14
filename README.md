@@ -11,12 +11,27 @@ yarn add eslint @typeform/eslint-config --dev
 
 ## Usage
 
-If you want to use the default configuration, you can simply create a `.eslintrc.js` file (or [alternatives](https://eslint.org/docs/user-guide/configuring#configuration-file-formats)) with the following content:
+This package uses ESLint's flat config format. Create an `eslint.config.js` file with the following content:
 
 ```js
-module.exports = {
-  extends: ['@typeform/eslint-config'],
-}
+import typeformConfig from '@typeform/eslint-config'
+
+export default typeformConfig
+```
+
+Or extend it with your own rules:
+
+```js
+import typeformConfig from '@typeform/eslint-config'
+
+export default [
+  ...typeformConfig,
+  {
+    rules: {
+      // Your custom rules
+    }
+  }
+]
 ```
 
 And run with:
@@ -25,18 +40,22 @@ And run with:
 yarn eslint . --fix
 ```
 
-## Using with prettier
+## Development
 
-If your codebase uses prettier for styles formatting, you can override default `standard` rules updating your `eslint` config:
-
-```js
-module.exports = {
-  extends: ['@typeform/eslint-config', 'prettier', 'prettier/react', 'plugin:prettier/recommended'],
-}
-```
-
-and installing `eslint-plugin-prettier`:
+This package is written in TypeScript and requires building before use:
 
 ```sh
-yarn add --dev eslint-plugin-prettier
+# Install dependencies
+yarn install
+
+# Build TypeScript
+yarn build
+
+# Run tests
+yarn test
+
+# Lint
+yarn lint
 ```
+
+The `prepare` script automatically builds the package after `yarn install`.
