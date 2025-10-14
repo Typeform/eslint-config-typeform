@@ -10,13 +10,22 @@ on:
 
 jobs:
   tests:
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted, ci-base]
+    strategy:
+      matrix:
+        node-version: [20, 22]
+      fail-fast: false
 
     steps:
       - name: Check Out Source Code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: ${{ matrix.node-version }}
 
       - name: Set up
         run: yarn
