@@ -19,11 +19,11 @@
   },
   "scripts": {
     "build": "tsc",
-    "prepare": "npm run build",
+    "prepare": "yarn build",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "eslint": "eslint",
     "lint": "yarn run eslint .",
-    "publish:npm": "npm run build && npm config set @typeform:registry https://registry.npmjs.org/ && npm config set '//registry.npmjs.org/:_authToken' $NPM_TOKEN && npm publish"
+    "publish:npm": "yarn build && npm config set @typeform:registry https://registry.npmjs.org/ && npm config set '//registry.npmjs.org/:_authToken' $NPM_TOKEN && npm publish"
   },
   "husky": {
     "hooks": {
