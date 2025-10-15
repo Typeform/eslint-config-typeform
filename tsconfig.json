@@ -16,7 +16,8 @@
   },
   "include": [
     "index.ts",
-    "prettier/index.js"
+    "prettier/index.js",
+    "types.d.ts"
   ],
   "exclude": [
     "node_modules",
