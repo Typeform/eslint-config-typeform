@@ -3,8 +3,9 @@ import { execSync } from 'child_process'
 describe('eslint config', () => {
   // #region Pass
   it('should pass if there are no errors', () => {
-    const output = execSync('yarn eslint -f "json" --no-ignore test-cases/pass.js')
-      .toString()
+    const output = execSync(
+      'yarn eslint -f "json" --no-ignore test-cases/pass.js',
+    ).toString()
     expect(output.includes('"errorCount":0')).toBeTruthy()
     expect(output.includes('"fatalErrorCount":0')).toBeTruthy()
     expect(output.includes('"warningCount":0')).toBeTruthy()
@@ -16,9 +17,8 @@ describe('eslint config', () => {
   // #region Warn
   it('should warn if console is used', () => {
     const output = execSync(
-        'yarn eslint -f "json" --no-ignore test-cases/warn-no-console.js'
-      )
-      .toString()
+      'yarn eslint -f "json" --no-ignore test-cases/warn-no-console.js',
+    ).toString()
 
     expect(output.includes('"ruleId":"no-console"')).toBeTruthy()
     expect(output.includes('"errorCount":0')).toBeTruthy()
@@ -26,8 +26,9 @@ describe('eslint config', () => {
   })
 
   it('should warn if var is used', () => {
-    const output = execSync('yarn eslint -f "json" --no-ignore test-cases/warn-no-var.js')
-      .toString()
+    const output = execSync(
+      'yarn eslint -f "json" --no-ignore test-cases/warn-no-var.js',
+    ).toString()
 
     expect(output.includes('"ruleId":"no-var"')).toBeTruthy()
     expect(output.includes('"errorCount":0')).toBeTruthy()
@@ -35,8 +36,9 @@ describe('eslint config', () => {
   })
 
   it('should warn if braces are not used', () => {
-    const output = execSync('yarn eslint -f "json" --no-ignore test-cases/warn-curly.js')
-      .toString()
+    const output = execSync(
+      'yarn eslint -f "json" --no-ignore test-cases/warn-curly.js',
+    ).toString()
 
     expect(output.includes('"ruleId":"curly"')).toBeTruthy()
     expect(output.includes('"errorCount":0')).toBeTruthy()
@@ -45,9 +47,8 @@ describe('eslint config', () => {
 
   it('should warn if destructuring is not used', () => {
     const output = execSync(
-        'yarn eslint -f "json" --no-ignore test-cases/warn-prefer-destructuring.js'
-      )
-      .toString()
+      'yarn eslint -f "json" --no-ignore test-cases/warn-prefer-destructuring.js',
+    ).toString()
 
     expect(output.includes('"ruleId":"prefer-destructuring"')).toBeTruthy()
     expect(output.includes('"errorCount":0')).toBeTruthy()
@@ -59,7 +60,7 @@ describe('eslint config', () => {
   it('should fail if debugger is used', () => {
     const call = () =>
       execSync(
-        'yarn eslint -f "json" --no-ignore test-cases/error-no-debugger.js'
+        'yarn eslint -f "json" --no-ignore test-cases/error-no-debugger.js',
       )
 
     expect(call).toThrow()

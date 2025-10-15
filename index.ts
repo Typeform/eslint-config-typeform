@@ -22,18 +22,18 @@ export default [
   // JavaScript/JSX configuration
   {
     files: ['**/*.{js,mjs,cjs,jsx}'],
-    
+
     plugins: {
-      react: reactPlugin,
+      'react': reactPlugin,
       'react-hooks': reactHooksPlugin,
-      jest: jestPlugin,
-      import: importPlugin,
+      'jest': jestPlugin,
+      'import': importPlugin,
     },
 
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
-      
+
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
@@ -92,20 +92,20 @@ export default [
   // TypeScript configuration
   {
     files: ['**/*.{ts,tsx}'],
-    
+
     plugins: {
       '@typescript-eslint': tseslint.plugin,
-      react: reactPlugin,
+      'react': reactPlugin,
       'react-hooks': reactHooksPlugin,
-      jest: jestPlugin,
-      import: importPlugin,
+      'jest': jestPlugin,
+      'import': importPlugin,
     },
 
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
       parser: tseslint.parser,
-      
+
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
