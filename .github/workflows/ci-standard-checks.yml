@@ -16,4 +16,4 @@ jobs:
   ci-standard-checks:
     uses: Typeform/.github/.github/workflows/ci-standard-checks-workflow.yaml@v1
     with:
-      skipChecks: required-typescripts
+      skipChecks: required-typescript
