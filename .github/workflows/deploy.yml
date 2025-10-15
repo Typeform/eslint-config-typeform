@@ -41,6 +41,9 @@ jobs:
       - name: Run linting
         run: yarn lint
 
+      - name: Build TypeScript
+        run: yarn build
+
       - name: Release main
         run: yarn semantic-release
         env:
