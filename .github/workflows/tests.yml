@@ -10,7 +10,7 @@ on:
 
 jobs:
   tests:
-    runs-on: [self-hosted, ci-base]
+    runs-on: [ubuntu-latest]
     strategy:
       matrix:
         node-version: [20, 22]
