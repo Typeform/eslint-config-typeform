@@ -3,7 +3,14 @@
   "version": "0.0.0-development",
   "description": "ESLint configuration for Typeform front-end projects",
   "type": "module",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "repository": "git@github.com:Typeform/eslint-config-typeform.git",
   "license": "LGPL-3.0-only",
   "private": false,
@@ -11,10 +18,12 @@
     "node": ">=20"
   },
   "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "eslint": "eslint",
     "lint": "yarn run eslint .",
-    "publish:npm": "npm config set @typeform:registry https://registry.npmjs.org/ && npm config set '//registry.npmjs.org/:_authToken' $NPM_TOKEN && npm publish"
+    "publish:npm": "npm run build && npm config set @typeform:registry https://registry.npmjs.org/ && npm config set '//registry.npmjs.org/:_authToken' $NPM_TOKEN && npm publish"
   },
   "husky": {
     "hooks": {
@@ -22,8 +31,8 @@
     }
   },
   "lint-staged": {
-    "*.js": "yarn run eslint --fix",
-    "*.{js,css,md}": "prettier --write"
+    "*.{js,ts}": "yarn run eslint --fix",
+    "*.{js,ts,css,md}": "prettier --write"
   },
   "publishConfig": {
     "access": "public"
