@@ -33,7 +33,7 @@ jobs:
       - name: Lint
         run: yarn lint
 
-      - name: Build TypeScript
+      - name: Build
         run: yarn build
 
       - name: Test
