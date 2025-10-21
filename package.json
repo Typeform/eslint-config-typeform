@@ -9,7 +9,8 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
-    }
+    },
+    "./prettier": "./prettier/index.cjs"
   },
   "repository": "git@github.com:Typeform/eslint-config-typeform.git",
   "license": "LGPL-3.0-only",
