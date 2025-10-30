@@ -59,3 +59,4 @@ yarn lint
 ```
 
 The `prepare` script automatically builds the package after `yarn install`.
+
