@@ -24,7 +24,8 @@
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "eslint": "eslint",
     "lint": "yarn run eslint .",
-    "publish:npm": "yarn build && npm config set @typeform:registry https://registry.npmjs.org/ && npm publish --provenance --access public"
+    "publish:npm": "yarn build && npm config set @typeform:registry https://registry.npmjs.org/ && npm publish --provenance --access public",
+    "publish:github": "npm config set @typeform:registry https://npm.pkg.github.com/ && npm publish"
   },
   "lint-staged": {
     "*.{js,ts}": "yarn run eslint --fix",
@@ -82,12 +83,18 @@
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
-      "@semantic-release/npm",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": true,
+          "tarballDir": "dist"
+        }
+      ],
       "@semantic-release/github",
       [
         "@semantic-release/exec",
         {
-          "successCmd": "yarn run publish:npm"
+          "successCmd": "yarn run publish:github"
         }
       ]
     ]
