@@ -56,5 +56,7 @@ jobs:
         run: yarn semantic-release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          # NPM_TOKEN removed - now using OIDC/Trusted Publishers for npmjs.org
-          # Provenance is automatically enabled via id-token: write permission
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # Hybrid approach: NPM_TOKEN used for verification, OIDC used for actual publishing
+          # OIDC publishing (with provenance) is enabled via id-token: write permission
+          # The npm CLI will prefer OIDC when available during the publish step
