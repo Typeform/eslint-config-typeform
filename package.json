@@ -25,7 +25,7 @@
     "eslint": "eslint",
     "lint": "yarn run eslint .",
     "publish:npm": "yarn build && npm config set @typeform:registry https://registry.npmjs.org/ && npm publish --provenance --access public",
-    "publish:github": "npm config set @typeform:registry https://npm.pkg.github.com/ && npm publish"
+    "publish:github": "npm config set @typeform:registry https://npm.pkg.github.com/ && npm config set '//npm.pkg.github.com/:_authToken' \"${GH_TOKEN}\" && npm publish"
   },
   "lint-staged": {
     "*.{js,ts}": "yarn run eslint --fix",
