@@ -95,7 +95,7 @@
       [
         "@semantic-release/exec",
         {
-          "publishCmd": "npm config set @typeform:registry https://npm.pkg.github.com/ && npm config set '//npm.pkg.github.com/:_authToken' \"${env.GH_TOKEN}\" && npm publish --tag ${nextRelease.channel || 'latest'}"
+          "publishCmd": "npm config set @typeform:registry https://npm.pkg.github.com/ && npm config set '//npm.pkg.github.com/:_authToken' \"<%= process.env.GH_TOKEN %>\" && npm publish --tag ${nextRelease.channel || 'latest'}"
         }
       ]
     ]
