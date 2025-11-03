@@ -12,6 +12,9 @@ jobs:
   main:
     name: Run checks and deploy
     runs-on: [ubuntu-latest]
+    permissions:
+      contents: write
+      id-token: write
 
     steps:
       - name: Check out Git repository
@@ -44,8 +47,16 @@ jobs:
       - name: Run linting
         run: yarn lint
 
+      - name: Reset npm registry for publishing
+        run: |
+          npm config set @typeform:registry https://registry.npmjs.org/
+          npm config delete '//npm.pkg.github.com/:_authToken'
+
       - name: Release
         run: yarn semantic-release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # Hybrid approach: NPM_TOKEN used for verification, OIDC used for actual publishing
+          # OIDC publishing (with provenance) is enabled via id-token: write permission
+          # The npm CLI will prefer OIDC when available during the publish step
