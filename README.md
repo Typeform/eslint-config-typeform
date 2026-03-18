@@ -1,4 +1,5 @@
 <a href=https://engineering-metrics.typeform.tf/standards-adoption-tool/reports/eslint-config-typeform/><img src=https://api.typeform.com/repositories/eslint-config-typeform/badges.svg /></a>
+
 # eslint-config-typeform
 
 ESLint configuration for [Typeform](https://github.com/Typeform/) front-end projects
@@ -29,8 +30,8 @@ export default [
   {
     rules: {
       // Your custom rules
-    }
-  }
+    },
+  },
 ]
 ```
 
@@ -59,4 +60,3 @@ yarn lint
 ```
 
 The `prepare` script automatically builds the package after `yarn install`.
-
