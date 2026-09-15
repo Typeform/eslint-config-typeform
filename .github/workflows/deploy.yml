@@ -21,13 +21,13 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 22
 
       - name: Set GitHub packages registry
         run: |
-          npm config set '//npm.pkg.github.com/:_authToken' ${{ secrets.GH_TOKEN }}
+          npm config set '//npm.pkg.github.com/:_authToken' ${{ secrets.JENKINS_PAT_TOKEN }}
           npm config set @typeform:registry https://npm.pkg.github.com/
 
       - name: Get yarn cache
@@ -55,6 +55,6 @@ jobs:
       - name: Release
         run: yarn semantic-release
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.JENKINS_PAT_TOKEN }}
           # OIDC publishing (with provenance) is enabled via id-token: write permission
           # No NPM_TOKEN needed — @semantic-release/npm v13 uses OIDC automatically
