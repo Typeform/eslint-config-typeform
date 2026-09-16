@@ -12,7 +12,7 @@ export default [
   // Ignore test-cases directory (these files intentionally have errors for testing)
   // Ignore dist directory (generated TypeScript output)
   {
-    ignores: ['dist/**', 'test-cases/**'],
+    ignores: ['dist/**', 'test-cases/**', 'coverage/**'],
   },
 
   // Base recommended configs (only jsx-a11y and prettier, not eslint:recommended to match original behavior)
