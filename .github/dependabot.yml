@@ -18,9 +18,6 @@ updates:
       # Stay on eslint v9.x until eslint-plugin-react ships a compatible release.
       - dependency-name: "eslint"
         versions: [">=10"]
-      - dependency-name: semantic-release
-        versions:
-          - '>=25.0.0'
     cooldown:
       default-days: 7
       exclude:
