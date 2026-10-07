@@ -29,7 +29,7 @@ jobs:
         # during the pilot. Mutable refs are a supply-chain risk with this App
         # token; pin a full commit SHA once the action is in production.
         # Acceptable risk for this testing phase only.
-        uses: Typeform/.github-private/actions/dependabot-automerge@feat/dependabot-automerge-go
+        uses: Typeform/.github-private/actions/automerge-dependencies@feat/dependabot-automerge-go
         with:
           github-token: ${{ steps.app-token.outputs.token }}
           freeze-windows: ${{ vars.AUTOMERGE_FREEZE_WINDOWS }}
