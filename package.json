@@ -16,18 +16,19 @@
   "license": "LGPL-3.0-only",
   "private": false,
   "engines": {
-    "node": ">=22.14.0"
+    "node": ">=22.14.0",
+    "pnpm": ">=11"
   },
   "scripts": {
     "build": "tsc",
-    "prepare": "husky && yarn build",
+    "prepare": "husky && pnpm build",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "eslint": "eslint",
-    "lint": "yarn run eslint .",
-    "publish:npm": "yarn build && npm config set @typeform:registry https://registry.npmjs.org/ && npm publish --provenance --access public"
+    "lint": "pnpm eslint .",
+    "publish:npm": "pnpm build && npm config set @typeform:registry https://registry.npmjs.org/ && npm publish --provenance --access public"
   },
   "lint-staged": {
-    "*.{js,ts}": "yarn run eslint --fix",
+    "*.{js,ts}": "pnpm eslint --fix",
     "*.{js,ts,css,md}": "prettier --write"
   },
   "publishConfig": {
@@ -47,8 +48,7 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^7.0.1",
     "globals": "^17.4.0",
-    "typescript-eslint": "^8.46.2",
-    "yarn": "^1.22.22"
+    "typescript-eslint": "^8.46.2"
   },
   "peerDependencies": {
     "eslint": ">=9.0.0",
