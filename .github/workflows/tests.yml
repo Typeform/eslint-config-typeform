@@ -12,8 +12,6 @@ jobs:
   tests:
     runs-on: [ubuntu-latest]
     strategy:
-      matrix:
-        node-version: [22]
       fail-fast: false
 
     steps:
@@ -23,18 +21,20 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Node.js
-        uses: actions/setup-node@v7
+        uses: Typeform/.github/shared-actions/setup-node-with-cache@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          use-asdf: true
+          package-manager: 'pnpm'
+          GH_TOKEN: ${{ secrets.JENKINS_PAT_TOKEN }}
 
-      - name: Set up
-        run: yarn
+      - name: Install
+        run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: yarn build
+        run: pnpm build
 
       - name: Lint
-        run: yarn lint
+        run: pnpm lint
 
       - name: Test
-        run: yarn test
+        run: pnpm test
