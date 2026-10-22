@@ -7,7 +7,7 @@ ESLint configuration for [Typeform](https://github.com/Typeform/) front-end proj
 ## Install
 
 ```sh
-yarn add eslint @typeform/eslint-config --dev
+pnpm add -D eslint @typeform/eslint-config
 ```
 
 ## Usage
@@ -38,7 +38,7 @@ export default [
 And run with:
 
 ```sh
-yarn eslint . --fix
+pnpm eslint . --fix
 ```
 
 ## Development
@@ -47,16 +47,16 @@ This package is written in TypeScript and requires building before use:
 
 ```sh
 # Install dependencies
-yarn install
+pnpm install
 
 # Build TypeScript
-yarn build
+pnpm build
 
 # Run tests
-yarn test
+pnpm test
 
 # Lint
-yarn lint
+pnpm lint
 ```
 
-The `prepare` script automatically builds the package after `yarn install`.
+The `prepare` script automatically builds the package after `pnpm install`.
